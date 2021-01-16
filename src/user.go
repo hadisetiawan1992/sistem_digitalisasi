@@ -3,8 +3,8 @@ package user
 import (
     "context"
     "fmt"
-	"github.com/hadisetiawan1992/sistem_digitalisasi/config"
-    "github.com/hadisetiawan1992/sistem_digitalisasi/models"
+	"github.com/hadisetiawan1992/sistem_digitalisasi/tree/main/config"
+    "github.com/hadisetiawan1992/sistem_digitalisasi/tree/main/models"
     "log"
     "time"
 )
