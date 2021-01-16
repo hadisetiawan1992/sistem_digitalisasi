@@ -38,8 +38,8 @@ func GetAll(ctx context.Context) ([]models.User, error) {
         var createdAt, updatedAt string
  
         if err = rowQuery.Scan(&user.ID,
-            &user.NIM,
-            &user.Name,
+            &user.Email,
+            &user.Nama_lengkap,
             &user.Semester,
             &createdAt,
             &updatedAt); err != nil {
