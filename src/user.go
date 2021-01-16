@@ -10,14 +10,14 @@ import (
 )
  
 const (
-    table          = "mahasiswa"
-    layoutDateTime = "2006-01-02 15:04:05"
+    table          = "musers"
+    layoutDateTime = "2021-01-17 01:08:00"
 )
  
 // GetAll
-func GetAll(ctx context.Context) ([]models.Mahasiswa, error) {
+func GetAll(ctx context.Context) ([]models.User, error) {
  
-    var mahasiswas []models.Mahasiswa
+    var users []models.User
  
     db, err := config.MySQL()
  
@@ -34,33 +34,33 @@ func GetAll(ctx context.Context) ([]models.Mahasiswa, error) {
     }
  
     for rowQuery.Next() {
-        var mahasiswa models.Mahasiswa
+        var user models.User
         var createdAt, updatedAt string
  
-        if err = rowQuery.Scan(&mahasiswa.ID,
-            &mahasiswa.NIM,
-            &mahasiswa.Name,
-            &mahasiswa.Semester,
+        if err = rowQuery.Scan(&user.ID,
+            &user.NIM,
+            &user.Name,
+            &user.Semester,
             &createdAt,
             &updatedAt); err != nil {
             return nil, err
         }
  
         //  Change format string to datetime for created_at and updated_at
-        mahasiswa.CreatedAt, err = time.Parse(layoutDateTime, createdAt)
+        user.CreatedAt, err = time.Parse(layoutDateTime, createdAt)
  
         if err != nil {
             log.Fatal(err)
         }
  
-        mahasiswa.UpdatedAt, err = time.Parse(layoutDateTime, updatedAt)
+        user.UpdatedAt, err = time.Parse(layoutDateTime, updatedAt)
  
         if err != nil {
             log.Fatal(err)
         }
  
-        mahasiswas = append(mahasiswas, mahasiswa)
+        users = append(users, user)
     }
  
-    return mahasiswas, nil
+    return users, nil
 }
