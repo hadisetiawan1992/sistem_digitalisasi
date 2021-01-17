@@ -15,9 +15,9 @@ const (
 )
  
 // GetAll
-func GetAll(ctx context.Context) ([]models.User, error) {
+func GetAll(ctx context.Context) ([]models.Users, error) {
  
-    var users []models.User
+    var users []models.Users
  
     db, err := config.MySQL()
  
@@ -34,7 +34,7 @@ func GetAll(ctx context.Context) ([]models.User, error) {
     }
  
     for rowQuery.Next() {
-        var user models.User
+        var user models.Users
         var createdAt, updatedAt string
  
         if err = rowQuery.Scan(&user.ID,
