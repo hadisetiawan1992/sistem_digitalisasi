@@ -6,7 +6,7 @@ import (
  
 type (
     // User
-    User struct {
+    Users struct {
         ID        		int       `json:"id"`
         Email       	int       `json:"email"`
         Nama_lengkap   	string    `name:"nama_lengkap"`
